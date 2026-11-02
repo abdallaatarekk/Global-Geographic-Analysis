@@ -1,219 +1,96 @@
-# 🌍 Global Geographic Analysis Dashboard
+# Global Geographic Analysis
 
-## 🎯 Overview
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboards-F2C811?logo=powerbi&logoColor=black)
+![Power Query](https://img.shields.io/badge/Power%20Query-Data%20Cleaning-0F766E)
+![Countries](https://img.shields.io/badge/Coverage-195%2B%20countries-2563EB)
 
-This project presents an interactive geographic analysis system that visualizes critical global development indicators across three comprehensive dashboards. The system processes and presents data from 195+ countries, enabling users to explore relationships between population demographics, education systems, and economic performance.
+Three interactive Power BI dashboards that compare 195+ countries on population, education and economy, built from a cleaned and validated dataset.
 
-**Project Goals:**
-- Transform complex global datasets into actionable insights
-- Identify correlations between education investment and economic indicators
-- Visualize demographic trends and population projections
-- Provide interactive exploration of geographic data patterns
+![Home page](images/home-page.png)
 
-## ✨ Features
+---
 
-- **Interactive Visualizations**: Dynamic charts, maps, and graphs with filtering capabilities
-- **Multi-Dashboard Architecture**: Three specialized dashboards for focused analysis
-- **Geographic Heat Maps**: Visual representation of country-level metrics
-- **Comparative Analysis**: Side-by-side country and regional comparisons
-- **Trend Analysis**: Historical data and future projections
-- **Data Quality**: Cleaned and validated dataset with null value handling
+## Business Question
 
-## 📊 Dashboards
+Governments, NGOs and analysts compare countries constantly, but the data sits in separate tables and is rarely clean. This project puts it in one place and answers three questions:
 
-### 1. Global Population & Demographics
-- **Total Population**: 8 billion tracked globally
-- **Average Life Expectancy**: 74.24 years
-- **Visualizations**:
-  - Population distribution by country
-  - Population projections through 2050
-  - Life expectancy vs median age correlation
-  - Interactive world map with population density
+| Dashboard | Question |
+|---|---|
+| Global Population & Demographics | Where do people live, how will populations change, and how does life expectancy relate to age? |
+| Education & Literacy | How literate is each country, how much does it invest in education, and where are the gaps by gender? |
+| Employment & Economy | How do unemployment, inflation and income compare across countries and continents? |
 
-### 2. Education & Literacy
-- **Average Global Literacy Rate**: 87.38%
-- **Average GDP Allocation**: 4.36%
-- **Visualizations**:
-  - Literacy rate heat map by country
-  - Education investment by country (top 10)
-  - Gender-based literacy comparison
-  - Regional literacy disparities
+---
 
-### 3. Employment & Economy
-- **Average Unemployment Rate**: 6.93%
-- **Visualizations**:
-  - GDP per capita by country
-  - Unemployment rate distribution
-  - Inflation trends across countries
-  - Economic indicator correlations
-  - Net worth distribution map
+## Dashboards
 
-## 📁 Data Source
+### Global Population & Demographics
+![Population dashboard](images/population-dashboard.png)
 
-**Primary Source**: [World Population Review](https://worldpopulationreview.com/)
+- Total population: **8 bn**; average life expectancy: **74.24 years**
+- Population by country with the 2050 projection (India and China lead, followed by the United States, Indonesia and Pakistan)
+- Life expectancy against median age by country
 
-**Data Collection Period**: [17/10/2025]
+### Education & Literacy
+![Education dashboard](images/education-dashboard.png)
 
-**Coverage**: 195+ countries across 6 continents
+- Average literacy rate: **87.38%**; average education spending: **4.36% of GDP**
+- Literacy map, top countries by education investment, and illiteracy rate by gender (highest in Chad, Afghanistan, Mali and the Central African Republic)
 
-**Metrics Collected**:
-- Population statistics and projections
-- Literacy rates (male/female)
-- Education investment (% of GDP)
-- GDP per capita
-- Unemployment rates
-- Inflation rates
-- Life expectancy
-- Median age
+### Employment & Economy
+![Economy dashboard](images/economy-dashboard.png)
 
-## 🧹 Data Cleaning & Preparation
+- Average unemployment rate: **6.93%**
+- Country table sorted by unemployment, with GDP per adult and literacy rate side by side (the top of the table includes Eswatini, South Africa and Palestine)
+- Net worth map and inflation rate by country
 
-The raw dataset required significant preprocessing to ensure accuracy and consistency for visualization.
+Every dashboard has a continent and country slicer, and a navigation bar that links back to the home page.
 
-### Cleaning Steps Performed:
+---
 
-**1. Null Value Handling**
-- Identified missing values across all metrics
-- Applied country-specific imputation for partial data
-- Removed records with >50% missing critical fields
-- Documented all data gaps for transparency
+## Data
 
-**2. Data Standardization**
-- Normalized country names (e.g., "USA" → "United States")
-- Standardized GDP values to consistent currency (USD)
-- Converted all percentages to decimal format
-- Aligned date formats across datasets
+- **Source:** [World Population Review](https://worldpopulationreview.com/)
+- **Coverage:** 195+ countries, 10+ indicators (population and projections, life expectancy, median age, literacy by gender, education spending, GDP per adult, unemployment, inflation, net worth)
+- **Collected:** <!-- VERIFY: README had two different dates (17/10/2025 collected, 2020-2022 "data current as of"). Keep the right one. -->
 
-**3. Outlier Detection**
-- Identified and validated statistical outliers
-- Cross-referenced suspicious values with secondary sources
-- Flagged but retained legitimate extreme values (e.g., Monaco GDP per capita)
+### Cleaning (Power Query)
 
-**4. Data Validation**
-- Verified literacy rates within 0-100% range
-- Checked population figures against official census data
-- Validated GDP calculations and conversions
-- Ensured consistency across related metrics
+<!-- VERIFY: keep only the steps you actually did. Delete the rest. -->
+- Standardized country names so tables join correctly
+- Handled missing values and documented the gaps
+- Validated ranges (for example, literacy between 0 and 100%)
+- Aggregated by continent for the slicers
 
-**5. Data Transformation**
-- Created calculated fields (e.g., total population from demographics)
-- Aggregated data at continent and regional levels
-- Generated year-over-year change calculations
-- Structured data for optimal dashboard performance
+---
 
-### Tools Used:
-- Power query for data cleaning
-- Power BI for manual validation
+## Tools
 
-## 🛠️ Technologies Used
+Power BI (DAX measures, slicers, bookmarks and page navigation) · Power Query · CSV
 
-- **Visualization Tool**: [Power BI] <!-- Add your actual tool -->
-- **Data Cleaning**: Power query
-- **Version Control**: Git & GitHub
-- **Data Format**: CSV
+---
 
+## Limitations
 
-## 💡 Key Insights
+- A static snapshot, not a live feed
+- Indicators come from different years depending on the country, so small gaps are expected
+- The dashboards show relationships between indicators, not causes
 
-1. **Education-Economy Correlation**: Countries with higher education investment (>6% of GDP) show 23% higher average GDP per capita
+---
 
-2. **Literacy Gaps**: Despite 87.38% global average, regional disparities exceed 50 percentage points between highest and lowest performing regions
+## Repository Structure
 
-3. **Demographic Shifts**: Population projections indicate significant workforce changes, with some regions facing aging populations while others experience youth bulges
-
-4. **Economic Indicators**: Strong inverse correlation between literacy rates and unemployment across analyzed countries
-
-## 🔮 Future Enhancements
-
-- [ ] Add time-series analysis with historical data (1990-2025)
-- [ ] Implement predictive modeling for future trends
-- [ ] Include additional metrics (healthcare, infrastructure)
-- [ ] Add drill-down functionality for city-level data
-- [ ] Implement real-time data updates via API
-- [ ] Add export functionality for custom reports
-- [ ] Include narrative insights and recommendations
-
-## 📈 Project Structure
-
-```
+```text
 global-geographic-analysis/
-│
-├── data/
-│   ├── raw/                    # Original data files
-│   ├── cleaned/                # Processed data files
-│   └── metadata.md             # Data documentation
-│
-├── dashboards/
-│   ├── population_demographics.twbx
-│   ├── education_literacy.twbx
-│   └── employment_economy.twbx
-│
-├── scripts/
-│   ├── data_cleaning.py        # Data preprocessing
-│   ├── data_validation.py      # Quality checks
-│   └── analysis.py             # Statistical analysis
-│
-├── docs/
-│   ├── methodology.md          # Analysis methodology
-│   └── insights.md             # Detailed findings
-│
-├── images/
-│   └── dashboard_screenshots/  # Preview images
-│
-├── requirements.txt            # Python dependencies
+├── images/            # dashboard screenshots
 ├── LICENSE
 └── README.md
 ```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👤 Contact
-
-
-- LinkedIn: (https://www.linkedin.com/in/abdallaatarekk/)
-- Email: abdallaht12012005@gmail.com
-- Portfolio:([https://boody1911.github.io/abdallah-portfolio/)
-
-**Project Link**:(https://github.com/boody1911/global-geographic-analysis)
+<!-- ADD: the .pbix file and the cleaned dataset if you can share them, then list them here. -->
 
 ---
 
-## 🙏 Acknowledgments
+## Author
 
-- World Population Review for providing comprehensive global data
-- [Any mentors, colleagues, or resources that helped]
-- The data visualization community for inspiration and best practices
-
----
-
-## 📊 Dashboard Previews!
-
-### Population & Demographics
-![Population Dashboard](https://github.com/user-attachments/assets/d76384ab-f9f9-4ee8-8bbf-4fb317692703)
-
-### Education & Literacy
-![Education Dashboard](https://github.com/user-attachments/assets/0c96fe26-2676-434c-b006-45789625c111)
-
-### Employment & Economy
-![Economy Dashboard](https://github.com/user-attachments/assets/2c6d60fa-0fed-45af-8056-7bfe8d795ca2)
-
----
-
-**⭐ If you found this project helpful, please consider giving it a star!**
-
----
-
-*Last Updated: [23/10/2025]*
-*Data Current as of: [2020-2022]*
+**Abdallah Tarek**, Data Analyst
+[LinkedIn](https://www.linkedin.com/in/abdallaatarekk) · [Portfolio](https://abdallahportfolio-phi-ten.vercel.app) · abdallahtarek.work@gmail.com
